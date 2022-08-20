@@ -10,7 +10,6 @@ public class enmy : MonoBehaviour
     Rigidbody RB;
     public float speed;
     private int score;
-    public Text text;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +33,6 @@ public class enmy : MonoBehaviour
         if (collision.gameObject.tag == "dstry")
         {
             Destroy(gameObject);
-
         }
     }
 

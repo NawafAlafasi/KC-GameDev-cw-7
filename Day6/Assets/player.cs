@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
     
     
     public float inc;
-
+    public AudioSource cry;
     public float minPos;
     public float maxPos;
 
@@ -23,6 +24,7 @@ public class player : MonoBehaviour
     void Update()
     {
         move();
+        
     }
 
     void move()
@@ -42,10 +44,17 @@ public class player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            SceneManager.LoadScene(0);
+            Invoke("Restart", 2.5f);
+            cry.Play();
         }
         
     }
+
+    void Restart()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 
 }
 
